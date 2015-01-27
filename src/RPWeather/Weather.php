@@ -34,7 +34,7 @@ class Weather
         return $weather;
     }
 
-    private function getClientIP()
+    private static function getClientIP()
     {
         $ipAddress = false;
 
