@@ -7,15 +7,19 @@ use Endroid\OpenWeatherMap\OpenWeatherMap;
 
 class Weather
 {
-    const GEO_DB_FILE = 'db/GeoLite2-City.mmdb';
+    const GEO_DB_FILE = 'GeoLite2-City.mmdb';
 
     protected $clientIP;
     protected $openWeatherMapAPIKey;
     protected $clientCurrentLocation = false;
     protected $currentWeather = false;
+    protected $dbDirectory;
 
-    public function __construct($openWeatherMapAPIKey, $overrideLocation = false)
+    public function __construct($openWeatherMapAPIKey, $overrideLocation = false, $dbDirectory = '/../db/')
     {
+        $this->dbDirectory = $dbDirectory;
+        $this->validateDBExistance();
+
         $this->clientIP = $this->_getClientIP();
         $this->openWeatherMapAPIKey = $openWeatherMapAPIKey;
 
@@ -23,6 +27,15 @@ class Weather
             $this->clientCurrentLocation = $overrideLocation;
         }
     }
+
+    private function validateDBExistance()
+    {
+        if(!file_exists(__DIR__.$this->dbDirectory.self::GEO_DB_FILE)) {
+            throw new \Exception('You must download a geoip database file');
+        }
+    }
+
+
 
     public function getWeather()
     {
@@ -39,16 +52,18 @@ class Weather
         }
 
         return $this->currentWeather;
+
     }
 
     private function _populateClientsCurrentLocation()
     {
-        //todo must validate that we have a valid IP
-        $DBReader = new GeoDBReader(self::GEO_DB_FILE);
-        $record = $DBReader->city($this->clientIP);
+        if($this->clientIP) {
+            $DBReader = new GeoDBReader(__DIR__.'/../db/'.self::GEO_DB_FILE);
+            $record = $DBReader->city($this->clientIP);
 
-        //todo construct the string in a better way plz
-        $this->clientCurrentLocation = $record->postal->code . ', ' . $record->country->isoCode;
+            //todo construct the string in a better way plz
+            $this->clientCurrentLocation = $record->postal->code . ', ' . $record->country->isoCode;
+        }
     }
 
     private function _getClientIP()
