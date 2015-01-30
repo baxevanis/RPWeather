@@ -11,13 +11,6 @@ class WeatherTest extends \PHPUnit_Framework_TestCase
     const DEMO_CITY = 'Brighton';
     const DEMO_COUNTRY = 'UK';
 
-    public function testInvalidIP()
-    {
-        $weather = new Weather(self::DEMO_OPEN_WEATHER_API_KEY);
-
-        $this->assertFalse($weather->getWeather());
-
-    }
     /**
      * @expectedException Exception
      */
