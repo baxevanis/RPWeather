@@ -35,8 +35,6 @@ class Weather
         }
     }
 
-
-
     public function getWeather()
     {
         if(!$this->currentWeather) {
