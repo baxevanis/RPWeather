@@ -13,7 +13,7 @@
         "php": ">=5.3.0",
         "endroid/openweathermap-bundle": "~1.0",
         "geoip2/geoip2": "~2.1",
-        "symfony/console": "3.0.*@dev",
+        "symfony/console": "dev-master",
         "raulfraile/distill": "@stable"
     },
     "require-dev": {

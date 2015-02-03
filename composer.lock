@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "95ab2f7b5a7fd2b2ce90dcce533ecaef",
+    "hash": "6fa3250a338e066db2dfb76db0b765de",
     "packages": [
         {
             "name": "endroid/openweathermap",
@@ -356,6 +356,121 @@
             "time": "2015-01-19 18:52:20"
         },
         {
+            "name": "pimple/pimple",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silexphp/Pimple.git",
+                "reference": "2bcd90124a31bcf61804b9eb5badb85679469921"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2bcd90124a31bcf61804b9eb5badb85679469921",
+                "reference": "2bcd90124a31bcf61804b9eb5badb85679469921",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Pimple": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
+            "homepage": "http://pimple.sensiolabs.org",
+            "keywords": [
+                "container",
+                "dependency injection"
+            ],
+            "time": "2015-01-26 16:18:50"
+        },
+        {
+            "name": "raulfraile/distill",
+            "version": "v0.9.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/raulfraile/distill.git",
+                "reference": "1920a69bcba9b0834cfe9eb93fe55e19b1a04422"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/raulfraile/distill/zipball/1920a69bcba9b0834cfe9eb93fe55e19b1a04422",
+                "reference": "1920a69bcba9b0834cfe9eb93fe55e19b1a04422",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "pimple/pimple": "~3.0",
+                "symfony/filesystem": "~2.4",
+                "symfony/process": "~2.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.1",
+                "raulfraile/ladybug": "~1.0",
+                "symfony/finder": "~2.4"
+            },
+            "suggest": {
+                "ext-rar": "Allows to uncompress rar files using RarArchive",
+                "ext-zip": "Allows to uncompress zip files using ZipArchive"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Distill\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raul Fraile",
+                    "email": "raulfraile@gmail.com"
+                }
+            ],
+            "description": "Smart compressed files extractor",
+            "keywords": [
+                "7zip",
+                "archive",
+                "bz2",
+                "bzip",
+                "bzip2",
+                "cab",
+                "compression",
+                "epub",
+                "extractor",
+                "gzip",
+                "phar",
+                "rar",
+                "strategy",
+                "tar.gz",
+                "tar.xz",
+                "tgz",
+                "unzip",
+                "xz",
+                "zip"
+            ],
+            "time": "2014-12-23 07:44:16"
+        },
+        {
             "name": "symfony/console",
             "version": "dev-master",
             "target-dir": "Symfony/Component/Console",
@@ -469,6 +584,100 @@
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
             "time": "2015-01-16 15:11:56"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "2.7.x-dev",
+            "target-dir": "Symfony/Component/Filesystem",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Filesystem.git",
+                "reference": "e681ca515e1e668a551b089177867e62e03d7d2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/e681ca515e1e668a551b089177867e62e03d7d2d",
+                "reference": "e681ca515e1e668a551b089177867e62e03d7d2d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
+            "homepage": "http://symfony.com",
+            "time": "2015-01-09 06:51:41"
+        },
+        {
+            "name": "symfony/process",
+            "version": "2.7.x-dev",
+            "target-dir": "Symfony/Component/Process",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Process.git",
+                "reference": "f3ab493718070b936e21b202422466db35c1c298"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/f3ab493718070b936e21b202422466db35c1c298",
+                "reference": "f3ab493718070b936e21b202422466db35c1c298",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Process\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "http://symfony.com",
+            "time": "2015-01-25 04:39:35"
         }
     ],
     "packages-dev": [
@@ -1270,7 +1479,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "symfony/console": 20
+        "symfony/console": 20,
+        "raulfraile/distill": 0
     },
     "prefer-stable": false,
     "prefer-lowest": false,
