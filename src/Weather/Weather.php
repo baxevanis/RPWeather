@@ -18,6 +18,7 @@ class Weather
     public function __construct($openWeatherMapAPIKey, $overrideLocation = false, $dbDirectory = '/../db/')
     {
         $this->dbDirectory = $dbDirectory;
+
         $this->validateDBExistance();
 
         $this->clientIP = $this->_getClientIP();
@@ -30,7 +31,7 @@ class Weather
 
     private function validateDBExistance()
     {
-        if(!file_exists(__DIR__.$this->dbDirectory.self::GEO_DB_FILE)) {
+        if(!file_exists($this->dbDirectory.self::GEO_DB_FILE)) {
             throw new \Exception('You must download a geoip database file');
         }
     }

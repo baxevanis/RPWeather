@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6e05b7dffb26674e107e4cd54350417a",
+    "hash": "5d26f89647baf251a858ebeaa344c1dc",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -844,16 +844,16 @@
         },
         {
             "name": "raulfraile/distill",
-            "version": "v0.9.8",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/raulfraile/distill.git",
-                "reference": "1920a69bcba9b0834cfe9eb93fe55e19b1a04422"
+                "reference": "e21f841ea4e06915cbf4d54c916698d40198cfe2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/raulfraile/distill/zipball/1920a69bcba9b0834cfe9eb93fe55e19b1a04422",
-                "reference": "1920a69bcba9b0834cfe9eb93fe55e19b1a04422",
+                "url": "https://api.github.com/repos/raulfraile/distill/zipball/e21f841ea4e06915cbf4d54c916698d40198cfe2",
+                "reference": "e21f841ea4e06915cbf4d54c916698d40198cfe2",
                 "shasum": ""
             },
             "require": {
@@ -909,7 +909,7 @@
                 "xz",
                 "zip"
             ],
-            "time": "2014-12-23 07:44:16"
+            "time": "2015-01-06 00:48:24"
         },
         {
             "name": "symfony/symfony",
@@ -1837,7 +1837,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "raulfraile/distill": 0
+        "raulfraile/distill": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

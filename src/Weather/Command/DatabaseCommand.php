@@ -2,12 +2,16 @@
 
 namespace Weather\Command;
 
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
-class DatabaseCommand extends Command
+class DatabaseCommand extends ContainerAwareCommand
 {
+    const DOWNLOAD_URL = 'http://geolite.maxmind.com/download/geoip/database/';
+    const DB_DESTINATION_DIRECTORY = '/data/';
+    const FREE_DB_FILE = 'GeoLite2-City.mmdb.gz';
+
     protected function configure()
     {
         $this
@@ -18,40 +22,31 @@ class DatabaseCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $return = $this->_downloadLatestFile();
-        var_dump($return);
-        $output->writeln('OK!?');
+        $sourceFile = 'GeoLite2-City.mmdb.gz';
+        $output->writeln(sprintf('Start downloading %s', $sourceFile));
+        $this->_downloadLatestFile($output);
+        $output->writeln('<info>Unzip completed</info>');
     }
 
-    private function _downloadLatestFile()
+    private function _downloadLatestFile($output)
     {
-        $sourceFile = 'http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz';
-        $sourceFile = __DIR__.'\GeoLite2-City.mmdb.gz';
-        //$sourceFile = __DIR__ . '\GeoLite2-City.zip';
+        $routeDir = $this->getContainer()->get('kernel')->getRootDir();
+        $destinationDirectory = $routeDir . self::DB_DESTINATION_DIRECTORY;
+        $fullDestinationFile = $destinationDirectory.'GeoLite2-City.mmdb.gz';
 
-        echo $sourceFile;
+        $fullSourceURL = self::DOWNLOAD_URL.self::FREE_DB_FILE;
 
-        return $this->_unzipFile($sourceFile, __DIR__.'/db/');
-
-        //http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz
-    }
-
-    private function _unzipFile($zipFile, $extractTo)
-    {
-
-        if(!file_exists($extractTo)) {
-            mkdir($extractTo, 0777, true);
+        if(!file_exists($destinationDirectory)) {
+            mkdir($destinationDirectory, 0777, true);
         }
 
-        $zip = new \ZipArchive;
-        $res = $zip->open($zipFile, \ZipArchive::CHECKCONS);
-        if ($res === TRUE) {
-            $res = $zip->extractTo($extractTo, array('GeoLite2-City.mmdb'));
-            $zip->close();
-            return true;
-        } else {
-            die('kourambies');
+        if (!copy($fullSourceURL, $fullDestinationFile)) {
+            $output->writeln('<error>Error during file download occured</error>');
             return false;
         }
+
+        system('gunzip -f "'.$fullDestinationFile.'"');
+
+        return true;
     }
 }

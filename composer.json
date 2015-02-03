@@ -14,7 +14,7 @@
         "endroid/openweathermap-bundle": "~1.0",
         "geoip2/geoip2": "~2.1",
         "symfony/symfony": "2.6.*",
-        "raulfraile/distill": "@stable"
+        "raulfraile/distill": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.3"
