@@ -15,7 +15,7 @@ class Weather
     protected $currentWeather = false;
     protected $dbDirectory;
 
-    public function __construct($openWeatherMapAPIKey, $overrideLocation = false, $dbDirectory = '/../db/')
+    public function __construct($openWeatherMapAPIKey, $overrideLocation = false, $dbDirectory = '/data/')
     {
         $this->dbDirectory = $dbDirectory;
 
