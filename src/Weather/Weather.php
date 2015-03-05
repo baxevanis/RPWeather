@@ -57,7 +57,7 @@ class Weather
     private function _populateClientsCurrentLocation()
     {
         if($this->clientIP) {
-            $DBReader = new GeoDBReader(__DIR__.'/../db/'.self::GEO_DB_FILE);
+            $DBReader = new GeoDBReader(__DIR__.'/data/'.self::GEO_DB_FILE);
             $record = $DBReader->city($this->clientIP);
 
             //todo construct the string in a better way plz
